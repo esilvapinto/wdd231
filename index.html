@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 231 – Desenvolvimento Web Frontend I | Elias Silva Pinto</title>
+    <meta name="description" content="Página inicial de Elias Silva Pinto no curso WDD 231 da BYU-Pathway: apresentação pessoal, trabalhos do curso e certificado de Programação de Computadores e Web.">
+    <meta name="author" content="Elias Silva Pinto">
+
+    <link rel="icon" href="imagens/logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos/telas-pequenas.css">
+    <link rel="stylesheet" href="estilos/telas-grandes.css">
+
+    <script src="scripts/navegacao.js" defer></script>
+    <script src="scripts/data.js" defer></script>
+    <script src="scripts/curso.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="marca">
+        <img src="imagens/logo.svg" alt="Logotipo de Elias Silva Pinto" width="48" height="48">
+        <span class="nome-site">Elias Silva Pinto</span>
+      </div>
+
+      <button id="menu" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navegacao">
+        <span class="icone-menu" aria-hidden="true"></span>
+      </button>
+
+      <nav id="navegacao" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" class="ativo" aria-current="page">Página Inicial</a></li>
+          <li><a href="camara/index.html">Projeto da Câmara</a></li>
+          <li><a href="final/index.html">Projeto Final</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Página Inicial</h1>
+
+      <div class="grade">
+        <section class="cartao sobre">
+          <h2>Sobre Mim</h2>
+          <img src="imagens/perfil.webp" alt="Foto de Elias Silva Pinto" width="300" height="300" class="foto">
+          <p>Meu nome é Elias Silva Pinto. Nasci em Uruguaiana, no Rio Grande do Sul, e moro em Santa Catarina, Brasil.</p>
+          <p>Sou aluno da BYU-Pathway Worldwide no curso de Desenvolvimento de Software. Tenho experiência em gestão nas áreas administrativa, comercial e logística, e uso a tecnologia para criar soluções simples e úteis.</p>
+        </section>
+
+        <section class="cartao trabalhos">
+          <h2>Trabalhos do Curso</h2>
+          <ul>
+            <li><a href="https://github.com/esilvapinto/wdd231">Repositório WDD 231 no GitHub</a></li>
+            <li><a href="camara/index.html">Projeto da Câmara de Comércio</a></li>
+            <li><a href="final/index.html">Projeto Final</a></li>
+            <li><a href="https://github.com/esilvapinto/cse210-projetos">Projetos de CSE 210 (C#)</a></li>
+          </ul>
+        </section>
+
+        <section class="cartao certificado">
+          <h2>Certificado de Programação de Computadores e Web</h2>
+
+          <div class="filtros" role="group" aria-label="Filtrar cursos">
+            <button type="button" class="filtro ativo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button type="button" class="filtro" data-filtro="CSE" aria-pressed="false">CSE</button>
+            <button type="button" class="filtro" data-filtro="WDD" aria-pressed="false">WDD</button>
+          </div>
+
+          <div id="cursos" class="cursos"></div>
+
+          <p class="creditos">Total de créditos dos cursos exibidos: <strong id="totalCreditos">0</strong></p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="sociais">
+        <a href="https://github.com/esilvapinto" aria-label="GitHub de Elias Silva Pinto">
+          <img src="imagens/github.svg" alt="" width="32" height="32">
+        </a>
+        <a href="https://www.linkedin.com/in/epinto-executivo" aria-label="LinkedIn de Elias Silva Pinto">
+          <img src="imagens/linkedin.svg" alt="" width="32" height="32">
+        </a>
+        <a href="https://www.instagram.com/" aria-label="Instagram de Elias Silva Pinto">
+          <img src="imagens/instagram.svg" alt="" width="32" height="32">
+        </a>
+      </div>
+      <p>&copy; <span id="anoAtual"></span> 🌎 Elias Silva Pinto 🌎 Santa Catarina, Brasil</p>
+      <p id="ultimaModificacao"></p>
+    </footer>
+  </body>
+</html>
