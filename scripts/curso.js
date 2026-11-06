@@ -71,6 +71,7 @@ const courses = [
 
 const containerCursos = document.querySelector("#cursos");
 const totalCreditos = document.querySelector("#totalCreditos");
+const creditosConcluidos = document.querySelector("#creditosConcluidos");
 const botoesFiltro = document.querySelectorAll(".filtro");
 
 function exibirCursos(lista) {
@@ -92,6 +93,12 @@ function exibirCursos(lista) {
   // Soma dos créditos apenas dos cursos exibidos
   const creditos = lista.reduce((soma, curso) => soma + curso.credits, 0);
   totalCreditos.textContent = creditos;
+
+  // Soma dos créditos apenas dos cursos concluídos exibidos
+  const concluidos = lista
+    .filter((curso) => curso.completed)
+    .reduce((soma, curso) => soma + curso.credits, 0);
+  creditosConcluidos.textContent = concluidos;
 }
 
 botoesFiltro.forEach((botao) => {
