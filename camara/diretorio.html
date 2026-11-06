@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretório de Membros | Câmara de Comércio de Sombrio</title>
+    <meta name="description" content="Diretório de empresas e organizações associadas à Câmara de Comércio de Sombrio, Santa Catarina.">
+    <meta name="author" content="Elias Silva Pinto">
+    <meta property="og:title" content="Diretório de Membros | Câmara de Comércio de Sombrio">
+    <meta property="og:description" content="Conheça as empresas e organizações associadas à Câmara de Comércio de Sombrio, no sul de Santa Catarina.">
+    <meta property="og:image" content="https://esilvapinto.github.io/wdd231/camara/imagens/logo-camara.webp">
+    <meta property="og:url" content="https://esilvapinto.github.io/wdd231/camara/diretorio.html">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="estilos/camara.css">
+    <script src="scripts/comum.js" defer></script>
+    <script src="scripts/diretorio.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="marca">
+        <img src="imagens/logo-camara.webp" alt="Logotipo da Câmara de Comércio de Sombrio" width="60" height="60">
+        <p class="nome-camara">Câmara de Comércio<span>Sombrio – SC</span></p>
+      </div>
+      <button id="botao-menu" class="botao-menu" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu"></button>
+      <nav aria-label="Navegação principal">
+        <ul id="menu" class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="diretorio.html" class="ativo" aria-current="page">Diretório</a></li>
+          <li><a href="associe-se.html">Associe-se</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Diretório de Membros</h1>
+      <p class="intro">Empresas e organizações que fortalecem o comércio e a comunidade de Sombrio.</p>
+
+      <div class="alternar" role="group" aria-label="Modo de exibição">
+        <button type="button" id="botao-grade" class="ativo" aria-pressed="true">Grade</button>
+        <button type="button" id="botao-lista" aria-pressed="false">Lista</button>
+      </div>
+
+      <div id="membros" class="grade" aria-live="polite"></div>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <div>
+          <p><strong>Câmara de Comércio de Sombrio</strong></p>
+          <p>Rua Sete de Setembro, 100 – Centro<br>Sombrio – SC, 88960-000</p>
+          <p><a href="mailto:contato@example.com">contato@example.com</a></p>
+          <p><a href="tel:+554835330000">(48) 3533-0000</a></p>
+        </div>
+        <ul class="redes" aria-label="Redes sociais">
+          <li><a href="https://www.facebook.com/">Facebook</a></li>
+          <li><a href="https://www.instagram.com/">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+        </ul>
+        <div>
+          <p>&copy; <span id="ano-atual"></span> Câmara de Comércio de Sombrio</p>
+          <p>Elias Silva Pinto | WDD 231 – BYU-Pathway</p>
+          <p>Última modificação: <span id="ultima-modificacao"></span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

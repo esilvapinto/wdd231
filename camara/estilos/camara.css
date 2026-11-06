@@ -1,0 +1,317 @@
+/* ===== Câmara de Comércio de Sombrio – mobile first ===== */
+:root {
+  --primaria: #0b4f5c;
+  --primaria-escura: #083a44;
+  --destaque: #f2b134;
+  --fundo: #f6f7f5;
+  --texto: #1d1d1d;
+  --borda: #d3d9d6;
+  --fonte: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--primaria);
+}
+
+/* ----- Cabeçalho e navegação ----- */
+.cabecalho {
+  background-color: var(--primaria);
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nome-camara {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.nome-camara span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.botao-menu {
+  background: none;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.botao-menu::before {
+  content: "☰";
+}
+
+.botao-menu.aberto::before {
+  content: "✕";
+}
+
+nav {
+  grid-column: 1 / -1;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.menu.aberto {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.menu a:hover {
+  background-color: var(--primaria-escura);
+}
+
+/* Wayfinding: página atual */
+.menu a.ativo {
+  background-color: var(--destaque);
+  color: var(--texto);
+  font-weight: 700;
+}
+
+/* ----- Conteúdo ----- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+h1 {
+  color: var(--primaria);
+  margin: 0 0 0.25rem;
+}
+
+.intro {
+  margin-top: 0;
+}
+
+.alternar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.alternar button {
+  font: inherit;
+  padding: 0.5rem 1.25rem;
+  min-height: 44px;
+  border: 2px solid var(--primaria);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--primaria);
+  cursor: pointer;
+}
+
+.alternar button.ativo {
+  background-color: var(--primaria);
+  color: #ffffff;
+}
+
+/* ----- Exibição em grade ----- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+
+.grade .membro {
+  background-color: #ffffff;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.grade .membro img {
+  display: block;
+  margin: 0 auto 0.5rem;
+  border-radius: 12px;
+}
+
+.membro h2 {
+  font-size: 1.15rem;
+  margin: 0.25rem 0;
+  color: var(--primaria);
+}
+
+.membro p {
+  margin: 0.25rem 0;
+  overflow-wrap: anywhere;
+}
+
+.nivel {
+  display: inline-block;
+  padding: 0.1rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nivel-1 {
+  background-color: #d6efe6;
+  color: #0b3d2e;
+}
+
+.nivel-2 {
+  background-color: #dfe3e8;
+  color: #1f2a33;
+}
+
+.nivel-3 {
+  background-color: #f6d27a;
+  color: #3a2c00;
+}
+
+/* ----- Exibição em lista (sem imagens) ----- */
+.lista {
+  display: block;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lista .membro {
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+}
+
+.lista .membro:nth-child(even) {
+  background-color: #e9efed;
+}
+
+.lista .membro img {
+  display: none;
+}
+
+/* ----- Rodapé ----- */
+.rodape {
+  background-color: var(--primaria-escura);
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+}
+
+.rodape-conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.rodape p {
+  margin: 0.25rem 0;
+}
+
+.rodape a {
+  color: #ffffff;
+}
+
+.redes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.redes a {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+/* ===== Telas maiores ===== */
+@media (min-width: 48rem) {
+  .cabecalho {
+    padding: 1rem 2rem;
+  }
+
+  .botao-menu {
+    display: none;
+  }
+
+  nav {
+    grid-column: auto;
+  }
+
+  .menu {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .menu a {
+    border-top: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+  }
+
+  .lista .membro {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr 1.5fr 2fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .lista .membro h2,
+  .lista .membro p {
+    margin: 0;
+  }
+
+  .lista .nivel {
+    justify-self: start;
+  }
+
+  .rodape-conteudo {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+  }
+
+  .redes {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "membros": [
+    {
+      "nome": "Pousada Lagoa Azul",
+      "endereco": "Av. Beira-Lagoa, 1200 – Centro, Sombrio-SC",
+      "telefone": "(48) 3533-1001",
+      "site": "https://www.example.com/pousada-lagoa-azul",
+      "imagem": "pousada-lagoa-azul.webp",
+      "nivel": 3,
+      "setor": "Hospedagem"
+    },
+    {
+      "nome": "Cerealista Arroz do Sul",
+      "endereco": "Rod. SC-450, km 3 – Interior, Sombrio-SC",
+      "telefone": "(48) 3533-1002",
+      "site": "https://www.example.com/arroz-do-sul",
+      "imagem": "arroz-do-sul.webp",
+      "nivel": 3,
+      "setor": "Agronegócio"
+    },
+    {
+      "nome": "Supermercado Bom Preço",
+      "endereco": "Rua Sete de Setembro, 455 – Centro, Sombrio-SC",
+      "telefone": "(48) 3533-1003",
+      "site": "https://www.example.com/bom-preco",
+      "imagem": "bom-preco.webp",
+      "nivel": 2,
+      "setor": "Varejo"
+    },
+    {
+      "nome": "Farmácia Vida Plena",
+      "endereco": "Rua Nereu Ramos, 210 – Centro, Sombrio-SC",
+      "telefone": "(48) 3533-1004",
+      "site": "https://www.example.com/vida-plena",
+      "imagem": "vida-plena.webp",
+      "nivel": 2,
+      "setor": "Saúde"
+    },
+    {
+      "nome": "Materiais de Construção Litoral Sul",
+      "endereco": "Av. Getúlio Vargas, 980 – São Luiz, Sombrio-SC",
+      "telefone": "(48) 3533-1005",
+      "site": "https://www.example.com/litoral-sul",
+      "imagem": "litoral-sul.webp",
+      "nivel": 2,
+      "setor": "Construção"
+    },
+    {
+      "nome": "Restaurante Sabor da Lagoa",
+      "endereco": "Rua da Lagoa, 77 – Parque das Avenidas, Sombrio-SC",
+      "telefone": "(48) 3533-1006",
+      "site": "https://www.example.com/sabor-da-lagoa",
+      "imagem": "sabor-da-lagoa.webp",
+      "nivel": 3,
+      "setor": "Alimentação"
+    },
+    {
+      "nome": "Associação Amigos da Lagoa",
+      "endereco": "Rua das Garças, 15 – Lagoa, Sombrio-SC",
+      "telefone": "(48) 3533-1007",
+      "site": "https://www.example.com/amigos-da-lagoa",
+      "imagem": "amigos-da-lagoa.webp",
+      "nivel": 1,
+      "setor": "Meio ambiente"
+    },
+    {
+      "nome": "Instituto Crescer Sombrio",
+      "endereco": "Rua Pedro Bittencourt, 320 – Centro, Sombrio-SC",
+      "telefone": "(48) 3533-1008",
+      "site": "https://www.example.com/instituto-crescer",
+      "imagem": "instituto-crescer.webp",
+      "nivel": 1,
+      "setor": "Educação"
+    }
+  ]
+}
