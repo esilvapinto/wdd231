@@ -1,0 +1,77 @@
+:root {
+  --azul: #1f3a5f;
+  --dourado: #e0a526;
+  --fundo: #f3f5f9;
+  --texto: #1c1c1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+}
+
+header {
+  background-color: var(--azul);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 6px solid var(--dourado);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Grade responsiva com auto-fit, sem media queries */
+#cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+#cartoes section {
+  background-color: #ffffff;
+  border: 1px solid #d5dbe5;
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#cartoes h2 {
+  margin: 0 0 0.75rem;
+  color: var(--azul);
+}
+
+#cartoes p {
+  margin: 0.25rem 0;
+}
+
+#cartoes img {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 1rem auto 0;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: var(--azul);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+}
