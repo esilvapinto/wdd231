@@ -32,7 +32,7 @@ const courses = [
     description:
       "Escrever, chamar, depurar e testar funções próprias, além de tratar exceções, usando Python.",
     technology: ["Python"],
-    completed: false
+    completed: true
   },
   {
     subject: "CSE",
@@ -54,7 +54,7 @@ const courses = [
     description:
       "Criação de páginas dinâmicas e responsivas com HTML, CSS e JavaScript.",
     technology: ["HTML", "CSS", "JavaScript"],
-    completed: false
+    completed: true
   },
   {
     subject: "WDD",
