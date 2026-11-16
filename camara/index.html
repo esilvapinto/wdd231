@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a Câmara de Comércio de Sombrio, acompanhe eventos, consulte o clima e descubra empresas associadas.">
+    <meta name="author" content="Elias Silva Pinto">
+    <meta property="og:title" content="Início | Câmara de Comércio de Sombrio">
+    <meta property="og:description" content="Conectando empresas, fortalecendo negócios e desenvolvendo Sombrio.">
+    <meta property="og:image" content="https://esilvapinto.github.io/wdd231/camara/imagens/litoral-sul.webp">
+    <meta property="og:url" content="https://esilvapinto.github.io/wdd231/camara/index.html">
+    <title>Início | Câmara de Comércio de Sombrio</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/telas-pequenas.css">
+    <link rel="stylesheet" href="estilos/telas-grandes.css">
+    <link rel="stylesheet" href="estilos/inicio-mobile.css">
+    <link rel="stylesheet" href="estilos/inicio-desktop.css">
+    <script src="scripts/comum.js" defer></script>
+    <script src="scripts/inicio.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="marca">
+        <img src="imagens/logo-camara.webp" alt="Logotipo da Câmara de Comércio de Sombrio" width="60" height="60">
+        <p class="nome-camara">Câmara de Comércio<span>Sombrio – SC</span></p>
+      </div>
+      <button id="botao-menu" class="botao-menu" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu"></button>
+      <nav aria-label="Navegação principal">
+        <ul id="menu" class="menu">
+          <li><a href="index.html" class="ativo" aria-current="page">Início</a></li>
+          <li><a href="diretorio.html">Diretório</a></li>
+          <li><a href="associe-se.html">Associe-se</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pagina-inicial">
+      <section class="hero" aria-labelledby="titulo-principal">
+        <img src="imagens/litoral-sul.webp" alt="Paisagem do litoral sul de Santa Catarina" width="1200" height="600" fetchpriority="high">
+        <div class="hero-conteudo">
+          <p class="sobretitulo">Juntos, crescemos mais</p>
+          <h1 id="titulo-principal">Fortalecendo negócios. Desenvolvendo Sombrio.</h1>
+          <p>Conectamos empreendedores, empresas e comunidade para criar oportunidades e fortalecer a economia local.</p>
+          <a class="botao-destaque" href="associe-se.html">Faça parte da nossa Câmara</a>
+        </div>
+      </section>
+
+      <section class="secao-eventos" aria-labelledby="titulo-eventos">
+        <div class="titulo-secao">
+          <div>
+            <p class="sobretitulo">Conexão e desenvolvimento</p>
+            <h2 id="titulo-eventos">Eventos e oportunidades</h2>
+          </div>
+          <a href="sobre.html" class="link-secundario">Conheça a Câmara</a>
+        </div>
+        <div class="eventos-grade">
+          <article class="evento">
+            <span class="evento-icone" aria-hidden="true">🤝</span>
+            <div>
+              <p class="evento-status">Encontros empresariais</p>
+              <h3>Café com Negócios</h3>
+              <p>Um espaço para aproximar empreendedores, compartilhar experiências e criar parcerias.</p>
+              <span class="evento-data">Próxima data: a confirmar</span>
+            </div>
+          </article>
+          <article class="evento">
+            <span class="evento-icone" aria-hidden="true">📈</span>
+            <div>
+              <p class="evento-status">Capacitação</p>
+              <h3>Oficinas para empreendedores</h3>
+              <p>Conteúdos práticos para apoiar a gestão, a inovação e o crescimento dos negócios locais.</p>
+              <span class="evento-data">Programação: em breve</span>
+            </div>
+          </article>
+          <article class="evento">
+            <span class="evento-icone" aria-hidden="true">🏬</span>
+            <div>
+              <p class="evento-status">Comunidade</p>
+              <h3>Vitrine de associados</h3>
+              <p>Uma oportunidade para conhecer produtos, serviços e iniciativas das empresas associadas.</p>
+              <span class="evento-data">Programação: em breve</span>
+            </div>
+          </article>
+        </div>
+        <p class="nota-agenda">A agenda acima apresenta iniciativas da Câmara. Datas e inscrições serão divulgadas quando confirmadas.</p>
+      </section>
+
+      <section class="secao-clima" aria-labelledby="titulo-clima">
+        <div class="titulo-secao">
+          <div>
+            <p class="sobretitulo">Informação local</p>
+            <h2 id="titulo-clima">Clima em Sombrio</h2>
+          </div>
+          <span class="atualizacao" id="clima-atualizado">Consultando condições...</span>
+        </div>
+        <div class="clima-painel">
+          <div class="clima-atual" id="clima-atual" aria-live="polite">
+            <p>Carregando as condições atuais...</p>
+          </div>
+          <div class="previsao">
+            <h3>Previsão para os próximos dias</h3>
+            <div class="previsao-grade" id="previsao" aria-live="polite">
+              <p>Carregando previsão...</p>
+            </div>
+          </div>
+        </div>
+        <p class="fonte-clima">Dados meteorológicos fornecidos por OpenWeather.</p>
+      </section>
+
+      <section class="secao-membros" aria-labelledby="titulo-membros">
+        <div class="titulo-secao">
+          <div>
+            <p class="sobretitulo">Quem faz parte</p>
+            <h2 id="titulo-membros">Associados em destaque</h2>
+          </div>
+          <a href="diretorio.html" class="link-secundario">Ver todos os associados</a>
+        </div>
+        <div class="membros-destaque" id="membros-destaque" aria-live="polite">
+          <p>Carregando empresas associadas...</p>
+        </div>
+      </section>
+
+      <section class="chamada-associacao" aria-labelledby="titulo-associacao">
+        <div>
+          <p class="sobretitulo">Faça parte desta rede</p>
+          <h2 id="titulo-associacao">Sua empresa cresce quando está conectada.</h2>
+          <p>Amplie relacionamentos, fortaleça sua presença e participe do desenvolvimento de Sombrio.</p>
+        </div>
+        <a class="botao-destaque botao-claro" href="associe-se.html">Saiba como se associar</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <div>
+          <p><strong>Câmara de Comércio de Sombrio</strong></p>
+          <p>Rua Sete de Setembro, 100 – Centro<br>Sombrio – SC, 88960-000</p>
+          <p>contato@camarasombrio.example</p>
+          <p><a href="tel:+554835330000">(48) 3533-0000</a></p>
+        </div>
+        <ul class="redes" aria-label="Redes sociais">
+          <li><a href="https://www.facebook.com/">Facebook</a></li>
+          <li><a href="https://www.instagram.com/">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+        </ul>
+        <div>
+          <p>&copy; <span id="ano-atual"></span> Câmara de Comércio de Sombrio</p>
+          <p>Elias Silva Pinto | WDD 231 – BYU-Pathway</p>
+          <p>Última modificação: <span id="ultima-modificacao"></span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
