@@ -8,9 +8,6 @@ const climaAtualizado = document.querySelector('#clima-atualizado');
 // Coordenadas aproximadas de Sombrio, Santa Catarina.
 const localidade = { latitude: -29.1081, longitude: -49.6167 };
 
-// Insira sua chave gratuita do OpenWeatherMap neste campo.
-// Restrinja a chave ao domínio do seu site nas configurações da sua conta.
-const chaveOpenWeather = 'SUA_CHAVE_OPENWEATHERMAP';
 
 const nomeNivel = (nivel) => ({
   2: 'Prata',
@@ -85,101 +82,117 @@ function formatarData(data) {
   }).format(data);
 }
 
-function urlIconeClima(codigo) {
-  return `https://openweathermap.org/img/wn/${codigo}@2x.png`;
+
+function descricaoClima(codigo) {
+  const descricoes = {
+    0: "Céu limpo",
+    1: "Predominantemente limpo",
+    2: "Parcialmente nublado",
+    3: "Nublado",
+    45: "Nevoeiro",
+    48: "Nevoeiro com geada",
+    51: "Garoa leve",
+    53: "Garoa moderada",
+    55: "Garoa intensa",
+    56: "Garoa congelante",
+    57: "Garoa congelante intensa",
+    61: "Chuva leve",
+    63: "Chuva moderada",
+    65: "Chuva intensa",
+    66: "Chuva congelante",
+    67: "Chuva congelante intensa",
+    71: "Neve leve",
+    73: "Neve moderada",
+    75: "Neve intensa",
+    77: "Grãos de neve",
+    80: "Pancadas de chuva leves",
+    81: "Pancadas de chuva moderadas",
+    82: "Pancadas de chuva intensas",
+    85: "Pancadas de neve leves",
+    86: "Pancadas de neve intensas",
+    95: "Trovoadas",
+    96: "Trovoadas com granizo",
+    99: "Trovoadas fortes com granizo"
+  };
+
+  return descricoes[codigo] || "Condição não identificada";
 }
 
-async function carregarClima() {
-  if (chaveOpenWeather === 'SUA_CHAVE_OPENWEATHERMAP') {
-    climaAtualContainer.innerHTML = '<p>Adicione sua chave do OpenWeatherMap em <code>scripts/inicio.js</code> para exibir os dados meteorológicos.</p>';
-    previsaoContainer.textContent = 'A previsão será exibida após configurar a chave da API.';
-    climaAtualizado.textContent = 'Configuração pendente';
-    return;
-  }
+function iconeClima(codigo) {
+  if (codigo === 0) return "☀️";
+  if ([1, 2].includes(codigo)) return "🌤️";
+  if ([3, 45, 48].includes(codigo)) return "☁️";
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(codigo)) return "🌧️";
+  if ([71, 73, 75, 77, 85, 86].includes(codigo)) return "❄️";
+  if ([95, 96, 99].includes(codigo)) return "⛈️";
+  return "🌡️";
+}
 
-  const parametros = `lat=${localidade.latitude}&lon=${localidade.longitude}&units=metric&lang=pt_br&appid=${chaveOpenWeather}`;
+
+async function carregarClima() {
+  const url = "https://api.open-meteo.com/v1/forecast"
+    + `?latitude=${localidade.latitude}`
+    + `&longitude=${localidade.longitude}`
+    + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m"
+    + "&daily=weather_code,temperature_2m_max,temperature_2m_min"
+    + "&timezone=America%2FSao_Paulo&forecast_days=4&wind_speed_unit=kmh";
 
   try {
-    const [respostaAtual, respostaPrevisao] = await Promise.all([
-      fetch(`https://api.openweathermap.org/data/2.5/weather?${parametros}`),
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?${parametros}`)
-    ]);
+    climaAtualContainer.textContent = "Carregando condições meteorológicas...";
+    previsaoContainer.textContent = "Carregando previsão...";
 
-    if (!respostaAtual.ok || !respostaPrevisao.ok) {
-      throw new Error('Não foi possível consultar os dados meteorológicos.');
-    }
+    const resposta = await fetch(url);
+    if (!resposta.ok) throw new Error("Falha na consulta meteorológica.");
 
-    const atual = await respostaAtual.json();
-    const previsao = await respostaPrevisao.json();
-
-    const temperatura = Math.round(atual.main.temp);
-    const sensacao = Math.round(atual.main.feels_like);
-    const descricao = atual.weather[0].description;
-    const icone = atual.weather[0].icon;
+    const dados = await resposta.json();
+    const atual = dados.current;
 
     climaAtualContainer.innerHTML = `
       <div class="temperatura-principal">
-        <img src="${urlIconeClima(icone)}" alt="" width="90" height="90">
-        <strong>${temperatura}°C</strong>
+        <span aria-hidden="true" style="font-size:3.5rem">${iconeClima(atual.weather_code)}</span>
+        <strong>${Math.round(atual.temperature_2m)}°C</strong>
       </div>
       <div>
         <h3>Condições atuais</h3>
-        <p class="descricao-clima">${descricao}</p>
-        <p>Sensação térmica: ${sensacao}°C</p>
-        <p>Umidade: ${atual.main.humidity}%</p>
-        <p>Vento: ${Math.round(atual.wind.speed * 3.6)} km/h</p>
-      </div>
-    `;
+        <p class="descricao-clima">${descricaoClima(atual.weather_code)}</p>
+        <p>Sensação térmica: ${Math.round(atual.apparent_temperature)}°C</p>
+        <p>Umidade: ${atual.relative_humidity_2m}%</p>
+        <p>Vento: ${Math.round(atual.wind_speed_10m)} km/h</p>
+      </div>`;
 
-    // Seleciona uma previsão próxima do meio-dia para cada um dos três dias seguintes.
-    const dias = new Map();
-    previsao.list.forEach((item) => {
-      const data = new Date(item.dt * 1000);
-      const chaveDia = data.toLocaleDateString('en-CA');
-      if (chaveDia === new Date().toLocaleDateString('en-CA')) return;
+    previsaoContainer.innerHTML = "";
 
-      const hora = data.getHours();
-      const distanciaMeioDia = Math.abs(hora - 12);
-      const registro = dias.get(chaveDia);
+    for (let i = 1; i <= 3; i++) {
+      const cartao = document.createElement("article");
+      cartao.className = "dia-previsao";
 
-      if (!registro || distanciaMeioDia < registro.distancia) {
-        dias.set(chaveDia, { item, distancia: distanciaMeioDia });
-      }
-    });
+      const dia = document.createElement("h4");
+      dia.textContent = formatarData(new Date(`${dados.daily.time[i]}T12:00:00`));
 
-    const proximosDias = [...dias.values()].slice(0, 3);
-    previsaoContainer.innerHTML = '';
+      const icone = document.createElement("span");
+      icone.textContent = iconeClima(dados.daily.weather_code[i]);
+      icone.setAttribute("aria-hidden", "true");
+      icone.style.fontSize = "2rem";
 
-    proximosDias.forEach(({ item }) => {
-      const data = new Date(item.dt * 1000);
-      const cartao = document.createElement('article');
-      cartao.className = 'dia-previsao';
+      const temperatura = document.createElement("strong");
+      temperatura.textContent =
+        `${Math.round(dados.daily.temperature_2m_max[i])}°C / ${Math.round(dados.daily.temperature_2m_min[i])}°C`;
 
-      const dia = document.createElement('h4');
-      dia.textContent = formatarData(data);
+      const descricao = document.createElement("p");
+      descricao.textContent = descricaoClima(dados.daily.weather_code[i]);
 
-      const imagem = document.createElement('img');
-      imagem.src = urlIconeClima(item.weather[0].icon);
-      imagem.alt = item.weather[0].description;
-      imagem.width = 60;
-      imagem.height = 60;
-
-      const temperaturaDia = document.createElement('strong');
-      temperaturaDia.textContent = `${Math.round(item.main.temp)}°C`;
-
-      const descricaoDia = document.createElement('p');
-      descricaoDia.textContent = item.weather[0].description;
-
-      cartao.append(dia, imagem, temperaturaDia, descricaoDia);
+      cartao.append(dia, icone, temperatura, descricao);
       previsaoContainer.append(cartao);
-    });
+    }
 
-    climaAtualizado.textContent = `Atualizado às ${new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+    climaAtualizado.textContent =
+      `Atualizado às ${new Date().toLocaleTimeString("pt-BR", {hour:"2-digit", minute:"2-digit"})} · Fonte: Open-Meteo`;
+
   } catch (erro) {
-    climaAtualContainer.textContent = 'As condições atuais estão temporariamente indisponíveis.';
-    previsaoContainer.textContent = 'Não foi possível carregar a previsão. Tente novamente mais tarde.';
-    climaAtualizado.textContent = 'Dados indisponíveis';
-    console.error('Erro ao carregar clima:', erro);
+    climaAtualContainer.textContent = "As condições atuais estão temporariamente indisponíveis.";
+    previsaoContainer.textContent = "Não foi possível carregar a previsão. Tente novamente mais tarde.";
+    climaAtualizado.textContent = "Dados indisponíveis";
+    console.error("Erro ao carregar clima:", erro);
   }
 }
 
