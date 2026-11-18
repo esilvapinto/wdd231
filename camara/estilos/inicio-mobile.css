@@ -295,3 +295,8 @@
     transition: background-color 160ms ease, border-color 160ms ease;
   }
 }
+
+.hero .sobretitulo,
+.chamada-associacao .sobretitulo {
+  color: var(--destaque);
+}
