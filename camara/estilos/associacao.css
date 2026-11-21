@@ -1,0 +1,183 @@
+/* ===== Página de associação ===== */
+
+.pagina-associacao .intro {
+  margin-bottom: 1.5rem;
+}
+
+.conteudo-associacao {
+  display: grid;
+  gap: 2rem;
+}
+
+.formulario-container,
+.niveis-container {
+  background-color: #ffffff;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.formulario-container h2,
+.niveis-container h2 {
+  color: var(--primaria);
+  margin-top: 0;
+}
+
+#form-associacao {
+  display: grid;
+  gap: 1rem;
+}
+
+#form-associacao label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 700;
+}
+
+#form-associacao input:not([type="submit"]),
+#form-associacao select,
+#form-associacao textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #899895;
+  border-radius: 6px;
+  font: inherit;
+  background-color: #ffffff;
+}
+
+#form-associacao input:focus,
+#form-associacao select:focus,
+#form-associacao textarea:focus {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+#form-associacao input[type="submit"] {
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primaria);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#form-associacao input[type="submit"]:hover {
+  background-color: var(--primaria-escura);
+}
+
+/* Cartões dos níveis */
+
+.cartoes-niveis {
+  display: grid;
+  gap: 1rem;
+}
+
+.cartao-nivel {
+  padding: 1.25rem;
+  text-align: center;
+  background-color: #f6f7f5;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  animation: entrada-cartao 0.7s ease both;
+}
+
+.cartao-nivel:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.cartao-nivel:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.cartao-nivel:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.cartao-nivel h3 {
+  color: var(--primaria);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+.cartao-nivel a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background-color: var(--primaria);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.cartao-nivel a:hover {
+  background-color: var(--primaria-escura);
+}
+
+@keyframes entrada-cartao {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Janelas de benefícios */
+
+dialog {
+  max-width: 450px;
+  width: calc(100% - 2rem);
+  padding: 1.5rem;
+  border: 2px solid var(--primaria);
+  border-radius: 10px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog h2 {
+  color: var(--primaria);
+}
+
+dialog button {
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primaria);
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+dialog button:hover {
+  background-color: var(--primaria-escura);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cartao-nivel {
+    animation: none;
+  }
+}
+
+/* ===== Telas maiores ===== */
+
+@media (min-width: 48rem) {
+  .conteudo-associacao {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+
+  .cartoes-niveis {
+    gap: 1.25rem;
+  }
+}

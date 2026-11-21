@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Associe sua empresa à Câmara de Comércio de Sombrio e conheça os benefícios."
+    />
+    <meta name="author" content="Elias Silva Pinto" />
+    <title>Associe-se | Câmara de Comércio de Sombrio</title>
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="estilos/telas-pequenas.css" />
+    <link rel="stylesheet" href="estilos/telas-grandes.css" />
+    <link rel="stylesheet" href="estilos/associacao.css" />
+
+    <script src="scripts/comum.js" defer></script>
+    <script src="scripts/associacao.js" defer></script>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="marca">
+        <img
+          src="imagens/logo-camara.webp"
+          alt="Logo da Câmara"
+          width="60"
+          height="60"
+        />
+        <p class="nome-camara">
+          Câmara de Comércio
+          <span>de Sombrio</span>
+        </p>
+      </div>
+
+      <button
+        class="botao-menu"
+        id="botao-menu"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="menu"
+      ></button>
+
+      <nav aria-label="Navegação principal">
+        <ul class="menu" id="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="diretorio.html">Diretório</a></li>
+          <li>
+            <a href="associacao.html" class="ativo" aria-current="page"
+              >Associe-se</a
+            >
+          </li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pagina-associacao">
+      <h1>Associe sua empresa</h1>
+      <p class="intro">
+        Faça parte da Câmara de Comércio de Sombrio e fortaleça o
+        desenvolvimento dos negócios da nossa região.
+      </p>
+
+      <div class="conteudo-associacao">
+        <section class="formulario-container">
+          <h2>Solicitação de associação</h2>
+
+          <form method="get" action="agradecimento.html" id="form-associacao">
+            <label for="nome">
+              Nome
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                title="Informe seu primeiro nome."
+                autocomplete="given-name"
+                required
+              />
+            </label>
+
+            <label for="sobrenome">
+              Sobrenome
+              <input
+                type="text"
+                id="sobrenome"
+                name="sobrenome"
+                title="Informe seu sobrenome."
+                autocomplete="family-name"
+                required
+              />
+            </label>
+
+            <label for="cargo">
+              Cargo na organização
+              <input
+                type="text"
+                id="cargo"
+                name="cargo"
+                title="Use pelo menos 7 caracteres, somente letras, espaços e hífens."
+                autocomplete="organization-title"
+                pattern="[A-Za-zÀ-ÿ -]{7,}"
+              />
+            </label>
+
+            <label for="email">
+              E-mail
+              <input
+                type="email"
+                id="email"
+                name="email"
+                title="Informe um endereço de e-mail válido."
+                placeholder="nome@empresa.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+
+            <label for="telefone">
+              Celular
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                title="Informe seu número de celular."
+                autocomplete="tel"
+                required
+              />
+            </label>
+
+            <label for="empresa">
+              Nome da empresa ou organização
+              <input
+                type="text"
+                id="empresa"
+                name="empresa"
+                title="Informe o nome da empresa."
+                autocomplete="organization"
+                required
+              />
+            </label>
+
+            <label for="nivel">
+              Nível de associação
+              <select id="nivel" name="nivel" required>
+                <option value="">Selecione um nível</option>
+                <option value="np">Associação NP</option>
+                <option value="bronze">Bronze</option>
+                <option value="silver">Prata</option>
+                <option value="gold">Ouro</option>
+              </select>
+            </label>
+
+            <label for="descricao">
+              Descrição da empresa ou organização
+              <textarea
+                id="descricao"
+                name="descricao"
+                rows="4"
+                title="Descreva brevemente sua organização."
+              ></textarea>
+            </label>
+
+            <input type="hidden" id="timestamp" name="timestamp" />
+
+            <input type="submit" value="Enviar solicitação" />
+          </form>
+        </section>
+
+        <section class="niveis-container">
+          <h2>Nossos níveis de associação</h2>
+
+          <div class="cartoes-niveis">
+            <article class="cartao-nivel">
+              <h3>NP</h3>
+              <p>Opção sem fins lucrativos.</p>
+              <a href="#modal-np" class="abrir-modal">Ver benefícios</a>
+            </article>
+
+            <article class="cartao-nivel">
+              <h3>Bronze</h3>
+              <p>Benefícios essenciais para sua empresa.</p>
+              <a href="#modal-bronze" class="abrir-modal">Ver benefícios</a>
+            </article>
+
+            <article class="cartao-nivel">
+              <h3>Prata</h3>
+              <p>Mais visibilidade e oportunidades.</p>
+              <a href="#modal-prata" class="abrir-modal">Ver benefícios</a>
+            </article>
+
+            <article class="cartao-nivel">
+              <h3>Ouro</h3>
+              <p>Maior destaque e participação.</p>
+              <a href="#modal-ouro" class="abrir-modal">Ver benefícios</a>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <dialog id="modal-np">
+        <h2>Associação NP</h2>
+        <p>
+          Destinada a organizações sem fins lucrativos, com participação nas
+          atividades da Câmara.
+        </p>
+        <button class="fechar-modal">Fechar</button>
+      </dialog>
+
+      <dialog id="modal-bronze">
+        <h2>Associação Bronze</h2>
+        <p>
+          Acesso às atividades da Câmara e divulgação básica da organização.
+        </p>
+        <button class="fechar-modal">Fechar</button>
+      </dialog>
+
+      <dialog id="modal-prata">
+        <h2>Associação Prata</h2>
+        <p>
+          Inclui os benefícios Bronze e maior espaço de divulgação e
+          participação em eventos.
+        </p>
+        <button class="fechar-modal">Fechar</button>
+      </dialog>
+
+      <dialog id="modal-ouro">
+        <h2>Associação Ouro</h2>
+        <p>
+          Inclui os benefícios anteriores, com destaque institucional e
+          oportunidades especiais de participação.
+        </p>
+        <button class="fechar-modal">Fechar</button>
+      </dialog>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <div>
+          <p><strong>Câmara de Comércio de Sombrio</strong></p>
+          <p>Sombrio - Santa Catarina</p>
+          <p>Brasil</p>
+        </div>
+
+        <div>
+          <p>Entre em contato</p>
+          <p><a href="mailto:contato@camarasombrio.org">E-mail</a></p>
+        </div>
+
+        <div>
+          <p>© <span id="ano-atual"></span> Câmara de Comércio de Sombrio</p>
+          <p>Última modificação: <span id="ultima-modificacao"></span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

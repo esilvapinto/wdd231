@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Confirmação da solicitação de associação à Câmara de Comércio de Sombrio."
+    />
+    <title>Solicitação recebida | Câmara de Comércio de Sombrio</title>
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="estilos/telas-pequenas.css" />
+    <link rel="stylesheet" href="estilos/telas-grandes.css" />
+    <link rel="stylesheet" href="estilos/associacao.css" />
+
+    <script src="scripts/comum.js" defer></script>
+    <script src="scripts/agradecimento.js" defer></script>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="marca">
+        <img
+          src="imagens/logo-camara.webp"
+          alt="Logo da Câmara"
+          width="60"
+          height="60"
+        />
+        <p class="nome-camara">
+          Câmara de Comércio
+          <span>de Sombrio</span>
+        </p>
+      </div>
+
+      <button
+        class="botao-menu"
+        id="botao-menu"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="menu"
+      ></button>
+
+      <nav aria-label="Navegação principal">
+        <ul class="menu" id="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="diretorio.html">Diretório</a></li>
+          <li>
+            <a href="associacao.html" class="ativo" aria-current="page"
+              >Associe-se</a
+            >
+          </li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pagina-associacao">
+      <h1>Solicitação recebida!</h1>
+      <p class="intro">
+        Obrigado pelo interesse em fazer parte da Câmara de Comércio de Sombrio.
+        Confira os dados enviados:
+      </p>
+
+      <section class="formulario-container">
+        <h2>Dados da solicitação</h2>
+
+        <p><strong>Nome:</strong> <span id="resultado-nome"></span></p>
+        <p>
+          <strong>Sobrenome:</strong> <span id="resultado-sobrenome"></span>
+        </p>
+        <p><strong>E-mail:</strong> <span id="resultado-email"></span></p>
+        <p><strong>Telefone:</strong> <span id="resultado-telefone"></span></p>
+        <p><strong>Empresa:</strong> <span id="resultado-empresa"></span></p>
+        <p><strong>Data e hora:</strong> <span id="resultado-data"></span></p>
+
+        <a href="index.html">Voltar à página inicial</a>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape-conteudo">
+        <div>
+          <p><strong>Câmara de Comércio de Sombrio</strong></p>
+          <p>Sombrio - Santa Catarina</p>
+          <p>Brasil</p>
+        </div>
+
+        <div>
+          <p>Entre em contato</p>
+          <p><a href="mailto:contato@camarasombrio.org">E-mail</a></p>
+        </div>
+
+        <div>
+          <p>© <span id="ano-atual"></span> Câmara de Comércio de Sombrio</p>
+          <p>Última modificação: <span id="ultima-modificacao"></span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
