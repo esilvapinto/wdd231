@@ -8,6 +8,10 @@
       content="Associe sua empresa à Câmara de Comércio de Sombrio e conheça os benefícios."
     />
     <meta name="author" content="Elias Silva Pinto" />
+    <meta property="og:title" content="Associe sua empresa à Câmara de Comércio de Sombrio" />
+    <meta property="og:description" content="Conheça os níveis de associação e os benefícios para fortalecer sua empresa junto à comunidade empresarial de Sombrio." />
+    <meta property="og:image" content="https://esilvapinto.github.io/wdd231/camara/imagens/logo-camara.webp" />
+    <meta property="og:url" content="https://esilvapinto.github.io/wdd231/camara/associacao.html" />
     <title>Associe-se | Câmara de Comércio de Sombrio</title>
 
     <link rel="icon" href="favicon.ico" />
@@ -106,7 +110,7 @@
                 id="cargo"
                 name="cargo"
                 title="Use pelo menos 7 caracteres, somente letras, espaços e hífens."
-                autocomplete="organization-title"
+                autocomplete="cargo-na-organizacao"
                 pattern="[A-Za-zÀ-ÿ -]{7,}"
               />
             </label>
@@ -143,14 +147,14 @@
                 id="empresa"
                 name="empresa"
                 title="Informe o nome da empresa."
-                autocomplete="organization"
+                autocomplete="organizacao"
                 required
               />
             </label>
 
-            <label for="nivel">
+            <label for="membership-level">
               Nível de associação
-              <select id="nivel" name="nivel" required>
+              <select id="membership-level" name="membership-level" required>
                 <option value="">Selecione um nível</option>
                 <option value="np">Associação NP</option>
                 <option value="bronze">Bronze</option>
